@@ -15,7 +15,7 @@ fs.readdir('./commands/actions', (err, files) => {
         if(!file.endsWith('.js')) return;
         let props = require(`./commands/actions/${file}`);
         let commandName = file.split('.')[0];
-        console.log(`SELFBOT > ${commandName} loaded.`);
+        console.log(`BOT > ${commandName} loaded.`);
         client.commands.set(props.help.name, props);
     });
 }); 
@@ -26,7 +26,7 @@ fs.readdir('./commands/animals', (err, files) => {
         if(!file.endsWith('.js')) return;
         let props = require(`./commands/animals/${file}`);
         let commandName = file.split('.')[0];
-        console.log(`SELFBOT > ${commandName} loaded.`);
+        console.log(`BOT > ${commandName} loaded.`);
         client.commands.set(props.help.name, props);
     });
 }); 
@@ -37,7 +37,7 @@ fs.readdir('./commands/facts', (err, files) => {
         if(!file.endsWith('.js')) return;
         let props = require(`./commands/facts/${file}`);
         let commandName = file.split('.')[0];
-        console.log(`SELFBOT > ${commandName} loaded.`);
+        console.log(BOT > ${commandName} loaded.`);
         client.commands.set(props.help.name, props);
     });
 }); 
@@ -48,7 +48,7 @@ fs.readdir('./commands/fun', (err, files) => {
         if(!file.endsWith('.js')) return;
         let props = require(`./commands/fun/${file}`);
         let commandName = file.split('.')[0];
-        console.log(`SELFBOT > ${commandName} loaded.`);
+        console.log(`BOT > ${commandName} loaded.`);
         client.commands.set(props.help.name, props);
     });
 });
@@ -59,7 +59,7 @@ fs.readdir('./commands/info', (err, files) => {
         if(!file.endsWith('.js')) return;
         let props = require(`./commands/info/${file}`);
         let commandName = file.split('.')[0];
-        console.log(`SELFBOT > ${commandName} loaded.`);
+        console.log(`BOT > ${commandName} loaded.`);
         client.commands.set(props.help.name, props);
     });
 });
@@ -70,7 +70,7 @@ fs.readdir('./commands/misc', (err, files) => {
         if(!file.endsWith('.js')) return;
         let props = require(`./commands/misc/${file}`);
         let commandName = file.split('.')[0];
-        console.log(`SELFBOT > ${commandName} loaded.`);
+        console.log(`BOT > ${commandName} loaded.`);
         client.commands.set(props.help.name, props);
     });
 });
@@ -81,14 +81,14 @@ fs.readdir('./commands/user', (err, files) => {
         if(!file.endsWith('.js')) return;
         let props = require(`./commands/user/${file}`);
         let commandName = file.split('.')[0];
-        console.log(`SELFBOT > ${commandName} loaded.`);
+        console.log(`BOT > ${commandName} loaded.`);
         client.commands.set(props.help.name, props);
     });
 }); 
 
 
 client.on('ready', async() => {
-    console.log(`SELFBOT > ${client.user.username}#${client.user.discriminator} is logged in.`);
+    console.log(`BOT > ${client.user.username}#${client.user.discriminator} is logged in.`);
 });
 
 client.on('message', message => {
@@ -98,7 +98,6 @@ client.on('message', message => {
     const command = messageArray[0];
     const cmd = client.commands.get(command.slice(prefix.length));
     if(!command.startsWith(prefix)) return;
-    if(message.author.id != client.user.id) return;
     if(cmd) cmd.run(client, message, args); 
 })
 
