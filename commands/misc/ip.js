@@ -29,6 +29,7 @@ snekfetch.get(`http://ip-api.com/json/${args}`).then(r => {
    .addField("Country Code", `${r.body.countryCode}`, true)
    .addField("City", `${r.body.city}`, true)
    .addField("Region", `${r.body.regionName}`, true)
+   .addField("Organization", `${r.body.org}`, true)
    .addField("Timezone", `${r.body.timezone}`, true)
    .addField("ISP", `${r.body.isp}`, true)
    .addField("ASN", `${r.body.as}`, true)
